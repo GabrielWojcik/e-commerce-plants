@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function NavBar() {
   return (
-    <div className="flex text-green-800 items-center justify-between mx-8">
+    <div className="hidden md:flex text-green-800 items-center justify-between mx-8">
       <div>
         <Image
           className="rounded-full"
@@ -16,7 +16,7 @@ export function NavBar() {
         />
       </div>
       <div>
-        <ul className="flex gap-4">
+        <ul className="flex gap-4 *:cursor-pointer">
           <li>Início</li>
           <li>Plantas</li>
           <li>Vasos</li>

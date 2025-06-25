@@ -5,16 +5,16 @@ import Img3 from "../images/flower/vaso-3.png";
 import Image from "next/image";
 export function Banner() {
   return (
-    <div className="bg-[#e4f1dc] text-[#2f5e3c] flex flex-col items-center h-96 p-4 gap-2 md:flex-row">
+    <div className="bg-[#e4f1dc] text-[#2f5e3c] flex flex-col items-center h-full p-4 gap-2 md:flex-row">
       <div className="w-full md:w-1/2">
-        <h1 className="text-5xl mb-2">
-          Traga a natureza <br /> para dentro de casa
+        <h1 className="text-5xl mb-2 text-balance">
+          Traga a natureza para dentro de casa
         </h1>
-        <p className="font-medium mb-8">
-          Descubra nossa coleção de plantas, suculentas, <br /> cactos e muito
-          mais para transformar seu espaço em <br /> um oásis verde.
+        <p className="font-medium mb-8 text-balance">
+          Descubra nossa coleção de plantas, suculentas, cactos e muito mais
+          para transformar seu espaço em um oásis verde.
         </p>
-        <div className="flex gap-4">
+        <div className="flex justify-center gap-4 md:justify-start">
           <button className="bg-[#3c6f4d] text-white py-2 px-8 rounded font-bold flex items-center gap-4 cursor-pointer hover:bg-green-700">
             Comprar agora <FaArrowRightLong />
           </button>
