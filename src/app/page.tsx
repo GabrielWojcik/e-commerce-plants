@@ -1,24 +1,13 @@
 import { Banner } from "@/components/Banner";
 import { Card } from "@/components/Card";
-import { NavBar } from "@/components/NavBar";
-import { NavBarMobile } from "@/components/NavBar/Mobile";
 import { cardMocks } from "@/mocks/cards";
 import { LuLeaf } from "react-icons/lu";
 import { FiShoppingBag } from "react-icons/fi";
 import { CiCircleCheck } from "react-icons/ci";
-import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
     <div>
-      <div className="block md:hidden">
-        <NavBarMobile />
-      </div>
-
-      <div className="hidden md:block">
-        <NavBar />
-      </div>
-
       <Banner />
 
       <div className="flex flex-col items-center justify-center gap-4 text-center">
@@ -35,6 +24,7 @@ export default function Home() {
                 title={item.title}
                 description={item.description}
                 image={item.image}
+                href={item.href}
               />
             );
           })}
@@ -104,7 +94,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
