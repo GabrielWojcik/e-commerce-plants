@@ -4,30 +4,47 @@ import { cardMocks } from "@/mocks/cards";
 import { LuLeaf } from "react-icons/lu";
 import { FiShoppingBag } from "react-icons/fi";
 import { CiCircleCheck } from "react-icons/ci";
+import { ProductCard } from "@/components/ProductCard";
 
 export default function Home() {
   return (
     <div>
       <Banner />
-
-      <div className="flex flex-col items-center justify-center gap-4 text-center">
+      <div className="flex flex-col items-center justify-center gap-4 text-center pt-4">
         <h1 className="text-5xl text-[#2f5e3c]">Nossas Categorias</h1>
         <p>
           Explore nossa variedade de plantas e acessórios para todos os espaços
           e níveis de experiência.
         </p>
-        <div className="flex flex-co flex-wrap justify-center md:flex-row">
-          {cardMocks.map((item) => {
-            return (
-              <Card
-                key={item.id}
-                title={item.title}
-                description={item.description}
-                image={item.image}
-                href={item.href}
-              />
-            );
-          })}
+        <div className="flex flex-col flex-wrap justify-center gap-5 mb-4">
+          <div className="flex">
+            {cardMocks.map((item) => {
+              return (
+                <Card
+                  key={item.id}
+                  title={item.title}
+                  description={item.description}
+                  image={item.image}
+                  href={item.href}
+                />
+              );
+            })}
+          </div>
+          <div>
+            <button className="text-[#3C6F4D] border border-[#3C64F4D] py-2 px-4 rounded-md cursor-pointer">
+              Ver todas categorias
+            </button>
+          </div>
+        </div>
+        <div className="text-[#3C6F4D]">
+          <div className="flex flex-col gap-4">
+            <h2 className="text-4xl">Produtos em destaque</h2>
+            <h3>
+              Descubra nossa seleção especial de plantas e acessórios mais
+              populares
+            </h3>
+          </div>
+          <ProductCard />
         </div>
         <div className="w-full">
           <div className="flex flex-col md:flex-row gap-4 bg-[#E4F1DC] w-full justify-center p-4 items-center">
