@@ -1,9 +1,10 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { Footer } from "@/components/Footer";
 import { NavBar } from "@/components/NavBar";
 import { NavBarMobile } from "@/components/NavBar/Mobile";
-import { Footer } from "@/components/Footer";
+import { SessionProvider } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -11,7 +12,7 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const hideLayout = pathname === "/login";
 
   return (
-    <>
+    <SessionProvider>
       {!hideLayout && (
         <>
           <div className="block md:hidden">
@@ -26,6 +27,6 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
       {children}
 
       {!hideLayout && <Footer />}
-    </>
+    </SessionProvider>
   );
 }
