@@ -103,7 +103,8 @@ const products = [
 ];
 
 // Componente para o card de produto
-const ProductCard = ({ product }) => (
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ProductCard = ({ product }: any) => (
   <div className="bg-white rounded-lg shadow-md overflow-hidden group transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
     <div className="relative">
       <img

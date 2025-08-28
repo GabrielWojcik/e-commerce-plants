@@ -1,4 +1,3 @@
-import { FaArrowRightLong } from "react-icons/fa6";
 import Img1 from "../images/flower/vaso-1.png";
 import Img2 from "../images/flower/vaso-2.png";
 import Img3 from "../images/flower/vaso-3.png";
