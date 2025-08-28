@@ -16,9 +16,9 @@ export function Banner() {
           para transformar seu espaço em um oásis verde.
         </p>
         <div className="flex justify-center gap-4 md:justify-start">
-          <button className="bg-[#3c6f4d] text-white py-2 px-8 rounded font-bold flex items-center gap-4 cursor-pointer hover:bg-green-700">
+          {/* <button className="bg-[#3c6f4d] text-white py-2 px-8 rounded font-bold flex items-center gap-4 cursor-pointer hover:bg-green-700">
             Comprar agora <FaArrowRightLong />
-          </button>
+          </button> */}
           <Link href="/catalogo">
             <button className="bg-white text-[#3c6f4d] py-2 px-8 border-[#3c6f4d] border rounded cursor-pointer hover:bg-[#3c6f4d] hover:text-white">
               Ver catálogo
