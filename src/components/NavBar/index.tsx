@@ -1,10 +1,10 @@
+import Image from "next/image";
+import { FaRegUser } from "react-icons/fa";
 import { FiShoppingBag } from "react-icons/fi";
 import { IoIosSearch } from "react-icons/io";
-import { FaRegUser } from "react-icons/fa";
-import Image from "next/image";
 
-import Logo from "../../images/logo-2-meu-jardim.png";
 import Link from "next/link";
+import Logo from "../../images/logo-2-meu-jardim.png";
 
 export function NavBar() {
   return (

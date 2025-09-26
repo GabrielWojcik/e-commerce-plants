@@ -1,10 +1,9 @@
 import { Banner } from "@/components/Banner";
 import { Card } from "@/components/Card";
-import { cardMocks } from "@/mocks/cards";
-import { LuLeaf } from "react-icons/lu";
-import { FiShoppingBag } from "react-icons/fi";
-import { CiCircleCheck } from "react-icons/ci";
 import { ProductCard } from "@/components/ProductCard";
+import { CiCircleCheck } from "react-icons/ci";
+import { FiShoppingBag } from "react-icons/fi";
+import { LuLeaf } from "react-icons/lu";
 
 export default function Home() {
   return (
@@ -20,17 +19,6 @@ export default function Home() {
         </p>
         <div className="flex flex-col flex-wrap justify-center gap-5 mb-4">
           <div className="flex flex-col md:flex-row">
-            {/* {cardMocks.map((item) => {
-              return (
-                <Card
-                  key={item.id}
-                  title={item.title}
-                  description={item.description}
-                  image={item.image}
-                  href={item.href}
-                />
-              );
-            })} */}
             <Card />
           </div>
           <div>

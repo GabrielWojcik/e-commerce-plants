@@ -5,7 +5,7 @@ import { LuLeaf } from "react-icons/lu";
 
 export default async function LoginPage() {
   const session = await getServerSession();
-  console.log("session aqui", session);
+
   if (!session) {
     return redirect("/");
   }
@@ -25,7 +25,7 @@ export default async function LoginPage() {
         <div className="bg-white p-4 rounded-md flex flex-col items-center gap-4">
           <p className="text-2xl text-[#2F5E3C]">Bem-vindo de volta</p>
           <p className="text-sm text-center md:text-start">
-            Faça login com sua conta Google para acessar o Meu Jardim
+            Faça login com sua conta Google para acessar o Meu Jardim.
           </p>
           <LoginBtn />
         </div>
