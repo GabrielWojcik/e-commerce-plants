@@ -1,5 +1,6 @@
-import { FiPhone } from "react-icons/fi";
+import Link from "next/link";
 import { FaRegEnvelope } from "react-icons/fa6";
+import { FiPhone } from "react-icons/fi";
 
 export function Footer() {
   return (
@@ -14,11 +15,21 @@ export function Footer() {
       <div className="text-gray-300 flex flex-col gap-4 mb-4">
         <strong className="text-white">Links Rápidos</strong>
         <ul className="flex flex-col gap-2">
-          <li>Início</li>
-          <li>Plantas</li>
-          <li>Vasos</li>
-          <li>Sobre Nós</li>
-          <li>Contato</li>
+          <Link href="/">
+            <li>Início</li>
+          </Link>
+          <Link href="/plantas">
+            <li>Plantas</li>
+          </Link>
+          <Link href="/vasos">
+            <li>Vasos</li>
+          </Link>
+          <Link href="/sobre">
+            <li>Sobre Nós</li>
+          </Link>
+          <Link href="/contato">
+            <li>Contato</li>
+          </Link>
         </ul>
       </div>
       <div className="text-gray-300 flex flex-col gap-4 mb-4">

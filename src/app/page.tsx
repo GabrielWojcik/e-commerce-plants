@@ -11,13 +11,15 @@ export default function Home() {
     <div>
       <Banner />
       <div className="flex flex-col items-center justify-center gap-4 text-center pt-4">
-        <h1 className="text-5xl text-[#2f5e3c]">Nossas Categorias</h1>
+        <h1 className="text-3xl md:text-5xl text-[#2f5e3c]">
+          Nossas Categorias
+        </h1>
         <p>
           Explore nossa variedade de plantas e acessórios para todos os espaços
           e níveis de experiência.
         </p>
         <div className="flex flex-col flex-wrap justify-center gap-5 mb-4">
-          <div className="flex">
+          <div className="flex flex-col md:flex-row">
             {cardMocks.map((item) => {
               return (
                 <Card
@@ -36,7 +38,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="text-[#3C6F4D]">
+        <div className="text-[#3C6F4D] flex items-center flex-col gap-3">
           <div className="flex flex-col gap-4">
             <h2 className="text-4xl">Produtos em destaque</h2>
             <h3>
@@ -87,8 +89,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="bg-[#3C6F4D] w-full text-white py-6">
-            <h1 className="text-5xl mb-4 pt-10">
+          <div className="bg-[#3C6F4D] w-full text-white p-6">
+            <h1 className="text-3xl md:text-5xl mb-4 pt-10">
               Fique por dentro das novidades
             </h1>
             <p className="text-center mb-4">

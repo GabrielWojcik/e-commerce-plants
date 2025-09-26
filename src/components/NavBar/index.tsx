@@ -4,26 +4,39 @@ import { FaRegUser } from "react-icons/fa";
 import Image from "next/image";
 
 import Logo from "../../images/logo-2-meu-jardim.png";
+import Link from "next/link";
 
 export function NavBar() {
   return (
     <div className="hidden md:flex text-green-800 items-center justify-between mx-8">
       <div>
-        <Image
-          className="rounded-full"
-          src={Logo}
-          alt=""
-          width={120}
-          height={120}
-        />
+        <Link href="/">
+          <Image
+            className="rounded-full"
+            src={Logo}
+            alt=""
+            width={120}
+            height={120}
+          />
+        </Link>
       </div>
       <div>
         <ul className="flex gap-4 *:cursor-pointer">
-          <li>Início</li>
-          <li>Plantas</li>
-          <li>Vasos</li>
-          <li>Sobre</li>
-          <li>Contato</li>
+          <Link href="/">
+            <li>Início</li>
+          </Link>
+          <Link href="/plantas">
+            <li>Plantas</li>
+          </Link>
+          <Link href="/vasos">
+            <li>Vasos</li>
+          </Link>
+          <Link href="/sobre">
+            <li>Sobre</li>
+          </Link>
+          <Link href="/contato">
+            <li>Contato</li>
+          </Link>
         </ul>
       </div>
       <div className="flex items-center gap-4">

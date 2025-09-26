@@ -6,8 +6,8 @@ import Link from "next/link";
 export function Banner() {
   return (
     <div className="bg-[#e4f1dc] text-[#2f5e3c] flex flex-col items-center h-full p-4 gap-2 md:flex-row">
-      <div className="w-full md:w-1/2">
-        <h1 className="text-5xl mb-2 text-balance">
+      <div className="w-full text-center md:w-1/2 md:text-start">
+        <h1 className="text-3xl md:text-5xl mb-2 text-balance">
           Traga a natureza para dentro de casa
         </h1>
         <p className="font-medium mb-8 text-balance">

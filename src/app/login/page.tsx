@@ -5,7 +5,7 @@ import { LuLeaf } from "react-icons/lu";
 
 export default async function LoginPage() {
   const session = await getServerSession();
-
+  console.log("session aqui", session);
   if (!session) {
     return redirect("/");
   }
