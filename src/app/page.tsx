@@ -20,7 +20,7 @@ export default function Home() {
         </p>
         <div className="flex flex-col flex-wrap justify-center gap-5 mb-4">
           <div className="flex flex-col md:flex-row">
-            {cardMocks.map((item) => {
+            {/* {cardMocks.map((item) => {
               return (
                 <Card
                   key={item.id}
@@ -30,7 +30,8 @@ export default function Home() {
                   href={item.href}
                 />
               );
-            })}
+            })} */}
+            <Card />
           </div>
           <div>
             <button className="text-[#3C6F4D] border border-[#3C64F4D] py-2 px-4 rounded-md cursor-pointer">
