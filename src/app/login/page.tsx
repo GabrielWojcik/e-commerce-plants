@@ -1,15 +1,7 @@
-import { LoginBtn } from "@/components/LoginBtn";
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
 import { LuLeaf } from "react-icons/lu";
+import { LoginBtn } from "@/components/LoginBtn";
 
 export default async function LoginPage() {
-  const session = await getServerSession();
-
-  if (!session) {
-    return redirect("/");
-  }
-
   return (
     <div className="bg-[#E4F1DC] flex flex-col justify-center items-center h-screen">
       <div className="flex flex-col gap-4">

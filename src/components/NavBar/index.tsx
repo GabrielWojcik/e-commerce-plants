@@ -1,3 +1,5 @@
+"use client";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { FaRegUser } from "react-icons/fa";
 import { FiShoppingBag } from "react-icons/fi";
@@ -7,6 +9,8 @@ import Link from "next/link";
 import Logo from "../../images/logo-2-meu-jardim.png";
 
 export function NavBar() {
+  const { data: session } = useSession();
+
   return (
     <div className="hidden md:flex text-green-800 items-center justify-between mx-8">
       <div>
@@ -45,7 +49,21 @@ export function NavBar() {
         </div>
         <div className="border p-2 border-lime-200 relative rounded-sm">
           <div className="m-1 cursor-pointer">
-            <FaRegUser color="#3F6212" size={20} />
+            {session?.user?.image ? (
+              <Link href="/perfil">
+                <Image
+                  src={session.user.image}
+                  alt={session.user.name || "User"}
+                  width={20}
+                  height={20}
+                  className="rounded-full"
+                />
+              </Link>
+            ) : (
+              <Link href="/login">
+                <FaRegUser color="#3F6212" size={20} />
+              </Link>
+            )}
           </div>
         </div>
         <div className="border p-2 border-lime-200 relative rounded-sm">

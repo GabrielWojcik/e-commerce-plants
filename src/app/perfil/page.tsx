@@ -1,14 +1,16 @@
 "use client";
 import type { TabsProps } from "antd";
 import { Tabs } from "antd";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
+import { CiLogout } from "react-icons/ci";
 import { FiBox } from "react-icons/fi";
 import { GoGear } from "react-icons/go";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdFavoriteBorder, MdOutlinePayment } from "react-icons/md";
-import { Requested } from "./components/requested";
+
 import { Favorites } from "./components/favorites";
+import { Requested } from "./components/requested";
 
 export default function Perfil() {
   const { data: session } = useSession();
@@ -57,9 +59,24 @@ export default function Perfil() {
             </p>
           </div>
         )}
-        <div className="border border-[#CDE4D6] py-2 px-4 rounded-md flex gap-2 items-center text-[#23432F] cursor-pointer">
-          <GoGear color="#23432F" />
-          <p>Editar Perfil</p>
+        <div className="flex flex-col gap-3 md:flex-row">
+          <button
+            className="border border-[#CDE4D6] py-2 px-4 rounded-md flex gap-2 items-center text-[#23432F] cursor-pointer 
+             hover:bg-[#CDE4D6] transition-colors duration-200"
+            onClick={() => signOut({ callbackUrl: "/" })}
+          >
+            <CiLogout color="#23432F" />
+            <span>Sair</span>
+          </button>
+
+          <button
+            className="border border-[#CDE4D6] py-2 px-4 rounded-md flex gap-2 items-center text-[#23432F] cursor-pointer
+             hover:bg-[#CDE4D6] transition-colors duration-200"
+            onClick={() => console.log("Editar Perfil")}
+          >
+            <GoGear color="#23432F" />
+            <span>Editar Perfil</span>
+          </button>
         </div>
       </div>
       <div className="flex justify-between">
