@@ -6,24 +6,17 @@ import { FiShoppingBag } from "react-icons/fi";
 import { IoIosSearch } from "react-icons/io";
 
 import Link from "next/link";
-import Logo from "../../images/logo-2-meu-jardim.png";
 
 export function NavBar() {
   const { data: session } = useSession();
 
   return (
-    <div className="hidden md:flex text-green-800 items-center justify-between mx-8">
-      <div>
-        <Link href="/">
-          <Image
-            className="rounded-full"
-            src={Logo}
-            alt=""
-            width={120}
-            height={120}
-          />
-        </Link>
-      </div>
+    <div className="hidden md:flex text-green-800 items-center justify-between mx-8 py-4">
+      <Link href="/">
+        <div>
+          <p className="text-3xl text-[#2f5e3c]">Meu Jardim</p>
+        </div>
+      </Link>
       <div>
         <ul className="flex gap-4 *:cursor-pointer">
           <Link href="/">
