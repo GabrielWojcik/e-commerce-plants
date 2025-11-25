@@ -24,7 +24,7 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
         </>
       )}
 
-      {children}
+      <div className="flex-grow">{children}</div>
 
       {!hideLayout && <Footer />}
     </SessionProvider>

@@ -33,12 +33,12 @@ export default function Perfil() {
     {
       key: "3",
       label: "Endereços",
-      children: "Content of Tab Pane 3",
+      children: "Endereços",
     },
     {
       key: "4",
       label: "Configurações",
-      children: "Content of Tab Pane 3",
+      children: "Configurações",
     },
   ];
 
