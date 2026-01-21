@@ -22,7 +22,7 @@ export default function Home() {
             <Card />
           </div>
           <div>
-            <button className="text-[#3C6F4D] border border-[#3C64F4D] py-2 px-4 rounded-md cursor-pointer">
+            <button className="text-[#3C6F4D] border border-[#3C6F4D] py-2 px-4 rounded-md cursor-pointer hover:bg-[#3C6F4D] hover:text-white transition-colors duration-200">
               Ver todas categorias
             </button>
           </div>

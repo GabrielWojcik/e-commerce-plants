@@ -18,21 +18,26 @@ export function NavBar() {
         </div>
       </Link>
       <div>
-        <ul className="flex gap-4 *:cursor-pointer">
-          <Link href="/">
-            <li>Início</li>
-          </Link>
+        <ul className="flex gap-4">
           <Link href="/plantas">
-            <li>Plantas</li>
+            <li className="cursor-pointer hover:text-lime-600 transition-colors duration-200">
+              Plantas
+            </li>
           </Link>
           <Link href="/vasos">
-            <li>Vasos</li>
+            <li className="cursor-pointer hover:text-lime-600 transition-colors duration-200">
+              Vasos
+            </li>
           </Link>
           <Link href="/sobre">
-            <li>Sobre</li>
+            <li className="cursor-pointer hover:text-lime-600 transition-colors duration-200">
+              Sobre
+            </li>
           </Link>
           <Link href="/contato">
-            <li>Contato</li>
+            <li className="cursor-pointer hover:text-lime-600 transition-colors duration-200">
+              Contato
+            </li>
           </Link>
         </ul>
       </div>
