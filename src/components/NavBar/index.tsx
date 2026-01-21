@@ -14,7 +14,9 @@ export function NavBar() {
     <div className="hidden md:flex text-green-800 items-center justify-between mx-8 py-4">
       <Link href="/">
         <div>
-          <p className="text-3xl text-[#2f5e3c]">Meu Jardim</p>
+          <p className="text-xl font-serif font-bold text-emerald-800 italic">
+            Meu Jardim
+          </p>
         </div>
       </Link>
       <div>
