@@ -3,64 +3,50 @@ import { FaWhatsapp } from "react-icons/fa";
 import { GoSun } from "react-icons/go";
 import { LuDroplets } from "react-icons/lu";
 import { SlSizeFullscreen } from "react-icons/sl";
+import { HiOutlinePlusSm } from "react-icons/hi";
+import { MdRemove } from "react-icons/md";
 
 import Image from "next/image";
 import Foto from "../../../images/flower/vaso-1.png";
+import { CareAttribute } from "@/components/modules/product/CareAttribute";
 
 export default function ProductPage() {
   return (
-    <div className="flex h-full py-4">
-      <div className="w-1/2 flex items-center justify-center pr-4">
-        <div>
-          <Image
-            src={Foto}
-            alt=""
-            height={300}
-            width={800}
-            className="h-auto w-auto rounded-2xl"
-          />
-        </div>
+    <div className="flex flex-col h-full py-4 md:pr-4 md:flex-row gap-2">
+      <div className="flex items-center justify-center md:pr-4 md:w-1/2">
+        <Image
+          src={Foto}
+          alt=""
+          className="h-auto w-full md:rounded-2xl md:max-h-[600px] object-contain"
+        />
       </div>
-      <div className="w-1/2 flex pr-4">
-        <div className="flex flex-col gap-2 justify-around w-full">
-          <div>
-            <h2 className="text-2xl font-bold text-slate-800">
-              Arranjo Especial de Suculentas
-            </h2>
-            <h3 className="text-gray-400">Quantidade Disponível: 2</h3>
-            <h2>R$ 45</h2>
-          </div>
-
+      <div className="flex flex-col gap-2 px-4 md:w-1/2 justify-around">
+        <div className="flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-slate-800">
+            Arranjo Especial de Suculentas
+          </h1>
+          <span>R$160,00</span>
+        </div>
+        <div className="flex flex-col gap-4">
           <div className="grid grid-cols-3 gap-3">
-            <div className="bg-white p-3 rounded-2xl border border-slate-100 flex flex-col items-center text-center gap-1 shadow-sm">
-              <GoSun color="#F59E0B" size={18} />
-              <span className="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">
-                LUZ
-              </span>
-              <span className="text-xs font-semibold text-slate-700 leading-tight">
-                Luz Direta/Indireta
-              </span>
-            </div>
-
-            <div className="bg-white p-3 rounded-2xl border border-slate-100 flex flex-col items-center text-center gap-1 shadow-sm">
-              <LuDroplets color="#3B82F6" size={18} />
-              <span className="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">
-                Água
-              </span>
-              <span className="text-xs font-semibold text-slate-700 leading-tight">
-                1x por semana
-              </span>
-            </div>
-
-            <div className="bg-white p-3 rounded-2xl border border-slate-100 flex flex-col items-center text-center gap-1 shadow-sm">
-              <SlSizeFullscreen color="#10B981" size={18} />
-              <span className="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">
-                TAM.
-              </span>
-              <span className="text-xs font-semibold text-slate-700 leading-tight">
-                15cm x 18cm
-              </span>
-            </div>
+            <CareAttribute
+              title="LUZ"
+              subTitle="Luz Direta/Indireta"
+              icon={GoSun}
+              iconColor="#F59E0B"
+            />
+            <CareAttribute
+              title="ÁGUA"
+              subTitle="1x por semana"
+              icon={LuDroplets}
+              iconColor="#3B82F6"
+            />
+            <CareAttribute
+              title="TAM."
+              subTitle="15cm x 18cm"
+              icon={SlSizeFullscreen}
+              iconColor="#10B981"
+            />
           </div>
 
           <div className="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
@@ -74,42 +60,13 @@ export default function ProductPage() {
             </div>
             <div className="flex items-center gap-4 bg-slate-50 p-1 rounded-xl">
               <button className="w-8 h-8 flex items-center justify-center bg-white rounded-lg shadow-sm text-emerald-600 disabled:opacity-50">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  className="lucide lucide-minus"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14"></path>
-                </svg>
+                <MdRemove />
               </button>
               <span className="font-bold text-slate-800 w-4 text-center">
                 1
               </span>
               <button className="w-8 h-8 flex items-center justify-center bg-white rounded-lg shadow-sm text-emerald-600 disabled:opacity-50">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  className="lucide lucide-plus"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5v14"></path>
-                </svg>
+                <HiOutlinePlusSm />
               </button>
             </div>
           </div>
@@ -122,8 +79,8 @@ export default function ProductPage() {
             </span>
           </div>
 
-          <div className="flex gap-2 flex-col ">
-            <div className="flex gap-3 flex-col w-1/2">
+          <div className="flex gap-2 flex-col">
+            <div className="flex flex-col gap-3">
               <Button
                 size="large"
                 className="text-base font-semibold rounded-xl"
