@@ -117,7 +117,7 @@ const ProductCard = ({ product }: any) => (
           -
           {Math.round(
             ((product.originalPrice - product.price) / product.originalPrice) *
-              100
+              100,
           )}
           %
         </span>

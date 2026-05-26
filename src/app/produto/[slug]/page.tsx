@@ -3,12 +3,11 @@ import { FaWhatsapp } from "react-icons/fa";
 import { GoSun } from "react-icons/go";
 import { LuDroplets } from "react-icons/lu";
 import { SlSizeFullscreen } from "react-icons/sl";
-import { HiOutlinePlusSm } from "react-icons/hi";
-import { MdRemove } from "react-icons/md";
 
 import Image from "next/image";
 import Foto from "../../../images/flower/vaso-1.png";
 import { CareAttribute } from "@/components/modules/product/CareAttribute";
+import { QuantitySelector } from "@/components/modules/product/QuantitySelector";
 
 export default function ProductPage() {
   return (
@@ -58,17 +57,7 @@ export default function ProductPage() {
                 Apenas 2 disponíveis
               </p>
             </div>
-            <div className="flex items-center gap-4 bg-slate-50 p-1 rounded-xl">
-              <button className="w-8 h-8 flex items-center justify-center bg-white rounded-lg shadow-sm text-emerald-600 disabled:opacity-50">
-                <MdRemove />
-              </button>
-              <span className="font-bold text-slate-800 w-4 text-center">
-                1
-              </span>
-              <button className="w-8 h-8 flex items-center justify-center bg-white rounded-lg shadow-sm text-emerald-600 disabled:opacity-50">
-                <HiOutlinePlusSm />
-              </button>
-            </div>
+            <QuantitySelector />
           </div>
           <div>
             <h3 className="font-bold text-slate-800">Descrição</h3>
