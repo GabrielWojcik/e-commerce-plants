@@ -16,9 +16,10 @@ export default function ProductPage() {
         <Image
           src={Foto}
           alt=""
-          className="h-auto w-full md:rounded-2xl md:max-h-[600px] object-contain"
+          className="h-auto w-full rounded-2xl md:max-h-[600px] object-contain"
         />
       </div>
+
       <div className="flex flex-col gap-2 px-4 md:w-1/2 justify-around">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-slate-800">
