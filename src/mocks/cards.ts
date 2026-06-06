@@ -10,6 +10,7 @@ interface CardProps {
   title: string;
   description: string;
   href: string;
+  category: string;
 }
 
 export const cardMocks: CardProps[] = [
@@ -20,6 +21,7 @@ export const cardMocks: CardProps[] = [
     description:
       "Plantas resistentes e de fácil cuidado, perfeitas para ambientes internos.",
     href: "/suculentas",
+    category: "Suculentas",
   },
   {
     id: 2,
@@ -28,6 +30,7 @@ export const cardMocks: CardProps[] = [
     description:
       "Plantas delicadas que apreciam ambientes úmidos e sombreados.",
     href: "/suculentas",
+    category: "Orquídeas",
   },
   {
     id: 3,
@@ -36,5 +39,6 @@ export const cardMocks: CardProps[] = [
     description:
       "Clássicas de interior, com folhagem exuberante e que gostam de meia-sombra.",
     href: "/suculentas",
+    category: "Samambaias",
   },
 ];

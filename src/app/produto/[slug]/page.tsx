@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "antd";
 import { FaWhatsapp } from "react-icons/fa";
 import { GoSun } from "react-icons/go";
@@ -8,8 +9,21 @@ import Image from "next/image";
 import Foto from "../../../images/flower/vaso-1.png";
 import { CareAttribute } from "@/components/modules/product/CareAttribute";
 import { QuantitySelector } from "@/components/modules/product/QuantitySelector";
+import { useCartStore } from "@/store/cartStore";
+import { useCallback } from "react";
 
 export default function ProductPage() {
+  const addItem = useCartStore((state) => state.addItem);
+
+  const handleAddToCart = useCallback(() => {
+    addItem({
+      id: "suculenta-1",
+      name: "Arranjo Especial de Suculentas",
+      price: 160,
+      image: "/images/flower/vaso-1.png",
+    });
+  }, [addItem]);
+
   return (
     <div className="flex flex-col h-full py-4 md:pr-4 md:flex-row gap-2">
       <div className="flex items-center justify-center md:pr-4 md:w-1/2">
@@ -74,6 +88,7 @@ export default function ProductPage() {
               <Button
                 size="large"
                 className="text-base font-semibold rounded-xl"
+                onClick={handleAddToCart}
               >
                 Adicione à sacola
               </Button>

@@ -6,9 +6,11 @@ import { FiShoppingBag } from "react-icons/fi";
 import { IoIosSearch } from "react-icons/io";
 
 import Link from "next/link";
+import { useCartStore } from "@/store/cartStore";
 
 export function NavBar() {
   const { data: session } = useSession();
+  const totalItems = useCartStore((state) => state.totalItems());
 
   return (
     <div className="hidden md:flex text-green-800 items-center justify-between mx-8 py-4">
@@ -66,14 +68,16 @@ export function NavBar() {
             )}
           </div>
         </div>
-        <div className="border p-2 border-lime-200 relative rounded-sm">
-          <div className="w-6 h-6 flex items-center justify-center text-white text-center absolute font-bold -top-2 -right-2 bg-lime-800 rounded-full z-10">
-            0
+        <Link href="/carrinho" aria-label="Ir para o carrinho de compras">
+          <div className="border p-2 border-lime-200 relative rounded-sm">
+            <div className="w-6 h-6 flex items-center justify-center text-white text-center absolute font-bold -top-2 -right-2 bg-lime-800 rounded-full z-10">
+              {totalItems}
+            </div>
+            <div className="m-1 cursor-pointer">
+              <FiShoppingBag color="#3F6212" size={20} />
+            </div>
           </div>
-          <div className="m-1 cursor-pointer">
-            <FiShoppingBag color="#3F6212" size={20} />
-          </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
