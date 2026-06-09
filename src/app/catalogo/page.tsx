@@ -1,52 +1,42 @@
 "use client";
-import { Heart } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { cardMocks } from "@/mocks/cards";
-import type { StaticImageData } from "next/image";
+import { useFilterStore } from "@/store/filterStore";
+import { ProductCard } from "@/components/ProductCard";
 
-interface ProductCardProps {
-  product: {
-    id: number;
-    image: StaticImageData;
-    title: string;
-    description: string;
-    href: string;
-    category: string;
-  };
-}
-
-const ProductCard = ({ product }: ProductCardProps) => (
-  <Link href={product.href}>
-    <div className="bg-white rounded-lg shadow-md overflow-hidden group transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
-      <div className="relative h-56">
-        <Image
-          src={product.image}
-          alt={product.title}
-          fill
-          className="object-cover"
-        />
-        <button className="absolute top-3 right-3 text-gray-400 hover:text-red-500 transition">
-          <Heart size={24} />
-        </button>
-      </div>
-      <div className="p-4">
-        <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
-          {product.category}
-        </span>
-        <h3 className="text-lg font-semibold text-gray-800 mt-2 mb-1 truncate">
-          {product.title}
-        </h3>
-        <p className="text-sm text-gray-600 line-clamp-2">
-          {product.description}
-        </p>
-      </div>
-    </div>
-  </Link>
-);
+const categories = ["Suculentas", "Orquídeas", "Samambaias"];
 
 // Componente principal da página do catálogo
 export default function CatalogoPage() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const { category, setCategory } = useFilterStore();
+
+  // URL → Zustand (ao carregar a página)
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get("category");
+    setCategory(categoryFromUrl);
+  }, [searchParams, setCategory]);
+
+  // Zustand → URL (ao mudar o filtro)
+  const handleCategoryChange = (newCategory: string | null) => {
+    setCategory(newCategory);
+
+    const params = new URLSearchParams(searchParams.toString());
+    if (newCategory) {
+      params.set("category", newCategory);
+    } else {
+      params.delete("category");
+    }
+    router.push(`?${params.toString()}`);
+  };
+
+  // Filtrar produtos
+  const filteredProducts = category
+    ? cardMocks.filter((product) => product.category === category)
+    : cardMocks;
+
   return (
     <div className="bg-gray-50 min-h-screen font-sans">
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -59,17 +49,45 @@ export default function CatalogoPage() {
           </p>
         </div>
 
+        {/* Filtros */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          <button
+            onClick={() => handleCategoryChange(null)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              category === null
+                ? "bg-green-600 text-white"
+                : "bg-white text-gray-600 hover:bg-gray-100"
+            }`}
+          >
+            Todos
+          </button>
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => handleCategoryChange(cat)}
+              className={`px-4 py-2 cursor-pointer rounded-full text-sm font-medium transition-colors ${
+                category === cat
+                  ? "bg-green-600 text-white"
+                  : "bg-white text-gray-600 hover:bg-gray-100"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         {/* Info */}
         <div className="flex justify-between items-center mb-8 p-4 bg-white rounded-lg shadow-sm">
           <div className="text-gray-600">
-            Mostrando <span className="font-semibold">{cardMocks.length}</span>{" "}
+            Mostrando{" "}
+            <span className="font-semibold">{filteredProducts.length}</span>{" "}
             produtos
           </div>
         </div>
 
         {/* Grade de Produtos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {cardMocks.map((product) => (
+          {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

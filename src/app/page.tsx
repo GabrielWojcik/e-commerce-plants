@@ -1,6 +1,7 @@
 import { Banner } from "@/components/Banner";
 import { Card } from "@/components/Card";
 import { ProductCard } from "@/components/ProductCard";
+import { cardMocks } from "@/mocks/cards";
 import { CiCircleCheck } from "react-icons/ci";
 import { FiShoppingBag } from "react-icons/fi";
 import { LuLeaf } from "react-icons/lu";
@@ -35,7 +36,9 @@ export default function Home() {
               populares
             </h3>
           </div>
-          <ProductCard />
+          {cardMocks.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
         <div className="w-full">
           <div className="flex flex-col md:flex-row gap-4 bg-[#E4F1DC] w-full justify-center p-4 items-center">

@@ -41,4 +41,49 @@ export const cardMocks: CardProps[] = [
     href: "/suculentas",
     category: "Samambaias",
   },
+  {
+    id: 4,
+    image: vaso1,
+    title: "Suculentas",
+    description:
+      "Plantas resistentes e de fácil cuidado, perfeitas para ambientes internos.",
+    href: "/suculentas",
+    category: "Suculentas",
+  },
+  {
+    id: 5,
+    image: vaso3,
+    title: "Samambaias",
+    description:
+      "Clássicas de interior, com folhagem exuberante e que gostam de meia-sombra.",
+    href: "/suculentas",
+    category: "Samambaias",
+  },
+  {
+    id: 6,
+    image: vaso2,
+    title: "Orquídeas",
+    description:
+      "Plantas delicadas que apreciam ambientes úmidos e sombreados.",
+    href: "/suculentas",
+    category: "Orquídeas",
+  },
+  {
+    id: 7,
+    image: vaso3,
+    title: "Samambaias",
+    description:
+      "Clássicas de interior, com folhagem exuberante e que gostam de meia-sombra.",
+    href: "/suculentas",
+    category: "Samambaias",
+  },
+  {
+    id: 8,
+    image: vaso1,
+    title: "Suculentas",
+    description:
+      "Plantas resistentes e de fácil cuidado, perfeitas para ambientes internos.",
+    href: "/suculentas",
+    category: "Suculentas",
+  },
 ];
