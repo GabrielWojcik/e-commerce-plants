@@ -13,9 +13,11 @@ type QuantitySelectorProps = {
 
 export function QuantitySelector({
   initialValue = 1,
+  max = 99,
+  min = 1,
   onChange,
 }: QuantitySelectorProps) {
-  const clampValue = (value: number) => Math.min(Math.max(value));
+  const clampValue = (value: number) => Math.min(Math.max(value, min), max);
   const [quantity, setQuantity] = useState(() => clampValue(initialValue));
 
   const handleQuantityChange = (nextValue: number) => {
@@ -30,7 +32,7 @@ export function QuantitySelector({
       <button
         type="button"
         onClick={() => handleQuantityChange(quantity - 1)}
-        disabled={quantity === 0}
+        disabled={quantity <= min}
         className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-emerald-600 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-50"
         aria-label="Diminuir quantidade"
       >
@@ -44,6 +46,7 @@ export function QuantitySelector({
       <button
         type="button"
         onClick={() => handleQuantityChange(quantity + 1)}
+        disabled={quantity >= max}
         className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-emerald-600 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-50"
         aria-label="Aumentar quantidade"
       >

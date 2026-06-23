@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { cardMocks } from "@/mocks/cards";
 import { useFilterStore } from "@/store/filterStore";
@@ -7,19 +7,17 @@ import { ProductCard } from "@/components/ProductCard";
 
 const categories = ["Suculentas", "Orquídeas", "Samambaias"];
 
-// Componente principal da página do catálogo
-export default function CatalogoPage() {
+// Componente que usa useSearchParams
+function CatalogoContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { category, setCategory } = useFilterStore();
 
-  // URL → Zustand (ao carregar a página)
   useEffect(() => {
     const categoryFromUrl = searchParams.get("category");
     setCategory(categoryFromUrl);
   }, [searchParams, setCategory]);
 
-  // Zustand → URL (ao mudar o filtro)
   const handleCategoryChange = (newCategory: string | null) => {
     setCategory(newCategory);
 
@@ -32,7 +30,6 @@ export default function CatalogoPage() {
     router.push(`?${params.toString()}`);
   };
 
-  // Filtrar produtos
   const filteredProducts = category
     ? cardMocks.filter((product) => product.category === category)
     : cardMocks;
@@ -178,5 +175,14 @@ export default function CatalogoPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+// Componente principal com Suspense
+export default function CatalogoPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Carregando...</div>}>
+      <CatalogoContent />
+    </Suspense>
   );
 }

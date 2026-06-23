@@ -7,16 +7,22 @@ import type { StaticImageData } from "next/image";
 
 export interface ProductCardProps {
   id: number;
+  slug: string;
   image: StaticImageData;
   title: string;
   description: string;
+  price: number;
+  light: string;
+  water: string;
+  size: string;
+  stock: number;
   href: string;
   category: string;
 }
 
 export function ProductCard({ product }: { product: ProductCardProps }) {
   return (
-    <Link href={product.href}>
+    <Link href={`/produto/${product.slug}-${product.id}`}>
       <div className="bg-white rounded-lg shadow-md overflow-hidden group transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
         <div className="relative h-56">
           <Image
